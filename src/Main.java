@@ -1,15 +1,40 @@
+import entities.ContagemPalavras;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        ContagemPalavras contagemLinguagens = new ContagemPalavras();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Adiciona linguagens e suas contagens
+        contagemLinguagens.adicionarPalavra("Java", 2);
+        contagemLinguagens.adicionarPalavra("Python", 8);
+        contagemLinguagens.adicionarPalavra("JavaScript", 1);
+        contagemLinguagens.adicionarPalavra("C#", 6);
+
+        System.out.println();
+        System.out.println("Exibe a contagem total de linguagens");
+        contagemLinguagens.exibirContagemPalavras();
+
+        System.out.println();
+        System.out.println("Adicionando uma nova linguagem.");
+        contagemLinguagens.adicionarPalavra("Kotlin", 7);
+
+        System.out.println();
+        System.out.println("Exibe a contagem total de linguagens");
+        contagemLinguagens.exibirContagemPalavras();
+
+        System.out.println();
+        System.out.println("Removendo uma linguagem");
+        contagemLinguagens.removerPalavra("JavaScript");
+
+        System.out.println();
+        System.out.println("Exibe a contagem total de linguagens");
+        contagemLinguagens.exibirContagemPalavras();
+
+        System.out.println();
+        System.out.println("Encontra e exibe a linguagem mais frequente");
+        String linguagemMaisFrequente = contagemLinguagens.encontrarPalavraMaisFrequente();
+        System.out.println("A linguagem mais frequente é: " + linguagemMaisFrequente);
     }
 }
